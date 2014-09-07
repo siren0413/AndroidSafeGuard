@@ -4,5 +4,7 @@
     <string name="app_name">AndroidSafeGuard</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="version">ver.</string>
+    <string name="title_activity_home">HomeActivity</string>
 
 </resources>
