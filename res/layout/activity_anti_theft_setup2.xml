@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:yijun="http://schemas.android.com/apk/res/com.yijun.androidsafeguard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yijun.androidsafeguard.AntiTheftSetup1Activity" >
+
+    <TextView
+        android:id="@+id/tv_antitheft_title"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#3B5998"
+        android:gravity="center"
+        android:text="Welcome to Anti-Theft"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/text_content_style"
+        android:layout_marginTop="20dp"
+        android:text="Bind SIM Card:\n\nCheck the SIM on startup\nAlert if detect SIM has been changed" />
+
+   
+    <com.yijun.androidsafeguard.ui.ItemViewWithCheckbox
+        android:id="@+id/ui_ivwc_antitheft_setup2_item"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        yijun:title="Bind SIM Card"
+        yijun:statusOnText="SIM binded"
+        yijun:statusOffText="SIM unbinded"
+        />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView android:src="@drawable/setup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+             />
+        
+        <Button 
+            android:id="@+id/bt_antitheft_setup_previous"
+            style="@style/button_previous_style"
+            android:text="Previous"
+            android:onClick="previous"
+            />
+        
+        <Button 
+            android:id="@+id/bt_antitheft_setup_next"
+            style="@style/button_next_style"
+            android:text="Next"
+            android:onClick="next"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
