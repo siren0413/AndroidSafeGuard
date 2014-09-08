@@ -60,15 +60,22 @@ containing a value of this type.
         public static final int trojan=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000c;
-        public static final int cb_setting_item=0x7f08000b;
+        public static final int action_settings=0x7f080013;
+        public static final int bt_antitheft_account_setup_cancel=0x7f08000a;
+        public static final int bt_antitheft_account_setup_set=0x7f080009;
+        public static final int bt_antitheft_account_validate_cancel=0x7f08000d;
+        public static final int bt_antitheft_account_validate_ok=0x7f08000c;
+        public static final int cb_setting_item=0x7f080012;
+        public static final int et_antitheft_account_setup_confirm=0x7f080008;
+        public static final int et_antitheft_account_setup_password=0x7f080007;
+        public static final int et_antitheft_account_validate_password=0x7f08000b;
         public static final int gv_home_body=0x7f080001;
-        public static final int iv_home_grid_item=0x7f080007;
+        public static final int iv_home_grid_item=0x7f08000e;
         public static final int rl_splash_root=0x7f080002;
-        public static final int tv_home_grid_item=0x7f080008;
+        public static final int tv_home_grid_item=0x7f08000f;
         public static final int tv_home_title=0x7f080000;
-        public static final int tv_setting_item_status=0x7f08000a;
-        public static final int tv_setting_item_title=0x7f080009;
+        public static final int tv_setting_item_status=0x7f080011;
+        public static final int tv_setting_item_title=0x7f080010;
         public static final int tv_setting_title=0x7f080005;
         public static final int tv_splash_update_progress=0x7f080004;
         public static final int tv_splash_version=0x7f080003;
@@ -78,8 +85,10 @@ containing a value of this type.
         public static final int activity_home=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_setting=0x7f030002;
-        public static final int grid_item_home=0x7f030003;
-        public static final int item_view_with_checkbox=0x7f030004;
+        public static final int antitheft_setup_dialog=0x7f030003;
+        public static final int antitheft_validate_dialog=0x7f030004;
+        public static final int grid_item_home=0x7f030005;
+        public static final int item_view_with_checkbox=0x7f030006;
     }
     public static final class menu {
         public static final int home=0x7f070000;
@@ -121,7 +130,6 @@ containing a value of this type.
          */
         public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
     }

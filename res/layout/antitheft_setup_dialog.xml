@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#66ff6600"
+        android:gravity="center"
+        android:text="Setup"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_antitheft_account_setup_password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Enter password"
+        android:password="true"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+         />
+
+    <EditText
+        android:id="@+id/et_antitheft_account_setup_confirm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Confirm password"
+        android:password="true"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+         />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_antitheft_account_setup_set"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Set" />
+
+        <Button
+            android:id="@+id/bt_antitheft_account_setup_cancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Cancel" />
+    </RelativeLayout>
+
+</LinearLayout>

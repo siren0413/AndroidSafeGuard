@@ -3,22 +3,51 @@ package com.yijun.androidsafeguard;
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
+	private static final String TAG = "HomeActivity"; 
+	
 	private GridView gv_home_body;
+	
+	private EditText et_antitheft_account_setup_password;
+	private EditText et_antitheft_account_setup_confirm;
+	private Button bt_antitheft_account_setup_set;
+	private Button bt_antitheft_account_setup_cancel;
+	
+	private EditText et_antitheft_account_validate_password;
+	private Button bt_antitheft_account_validate_ok;
+	private Button bt_antitheft_account_validate_cancel;
+	
+	private AlertDialog antitheft_account_setup_dialog;
+	private AlertDialog antitheft_account_validate_dialog;
+	
+	private SharedPreferences sp;
+
+	
+	
 	private static final String[] names = {
 		"Anti-Theft","Anti-Spam","App-Manager",
 		"Task-Manager","Data-Usage","Anti-Virus",
@@ -38,7 +67,9 @@ public class HomeActivity extends Activity {
 	private static final int ANTI_VIRUS = 5; 
 	private static final int CLEAN_UP = 6; 
 	private static final int TOOLS = 7; 
-	private static final int SETTINGS = 8; 
+	private static final int SETTINGS = 8;
+
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +78,16 @@ public class HomeActivity extends Activity {
 		
 		//initial widgets
 		gv_home_body = (GridView) findViewById(R.id.gv_home_body);
+		sp = getSharedPreferences("config", MODE_PRIVATE);
 		
 		gv_home_body.setAdapter(new BodyAdapter());
 		gv_home_body.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				switch (position) {
+				case ANTI_THEFT:
+					showAntiTheftDialog();
+					break;
 				case SETTINGS:
 					Intent intent = new Intent(HomeActivity.this, SettingActivity.class);
 					startActivity(intent);
@@ -65,6 +100,119 @@ public class HomeActivity extends Activity {
 	}
 	
 	
+	protected void showAntiTheftDialog() {
+		if(isSetupAntiTheftAccount()){
+			showAntiTheftAccountValidateDialog();
+		}else{
+			showSetupAndiTheftAccountDialog();
+			
+		}
+	}
+	
+	private void showSetupAndiTheftAccountDialog() {
+		Log.i(TAG, "show anti-theft account setup dialog.");
+		AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+		View view = View.inflate(HomeActivity.this, R.layout.antitheft_setup_dialog, null);
+		
+		// initial widgets
+		et_antitheft_account_setup_password = (EditText) view.findViewById(R.id.et_antitheft_account_setup_password);
+		et_antitheft_account_setup_confirm = (EditText)view.findViewById(R.id.et_antitheft_account_setup_confirm);
+		bt_antitheft_account_setup_set = (Button)view.findViewById(R.id.bt_antitheft_account_setup_set);
+		bt_antitheft_account_setup_cancel = (Button) view.findViewById(R.id.bt_antitheft_account_setup_cancel);
+		
+		// setup listener
+		bt_antitheft_account_setup_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				antitheft_account_setup_dialog.dismiss();
+				Log.i(TAG, "anti-theft setup canceled");
+			}
+		});
+		bt_antitheft_account_setup_set.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String password = et_antitheft_account_setup_password.getText().toString().trim();
+				String confirm = et_antitheft_account_setup_confirm.getText().toString().trim();
+				if(!password.equals(confirm)){
+					Toast.makeText(HomeActivity.this, "The passwords do not match", Toast.LENGTH_SHORT).show();
+					Log.i(TAG, "The passwords do not match");
+					return;
+				}
+				if(password.isEmpty()){
+					Toast.makeText(HomeActivity.this, "The password is empty", Toast.LENGTH_SHORT).show();
+					Log.i(TAG, "The password is empty");
+					return;
+				}
+				
+				// save to config
+				Editor editor = sp.edit();
+				editor.putString("password", password);
+				editor.commit();
+				Log.i(TAG, "Saved password to config");
+				antitheft_account_setup_dialog.dismiss();
+				
+				Log.i(TAG, "Show anti-theft account validate dialog");
+				showAntiTheftAccountValidateDialog();
+			}
+		});
+		antitheft_account_setup_dialog = builder.create();
+		antitheft_account_setup_dialog.setView(view,0,0,0,0);
+		antitheft_account_setup_dialog.show();
+	}
+
+
+	private void showAntiTheftAccountValidateDialog() {
+		Log.i(TAG, "show anti-theft validate dialog.");
+		AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+		View view = View.inflate(HomeActivity.this, R.layout.antitheft_validate_dialog, null);
+		
+		// initial widgets
+		et_antitheft_account_validate_password = (EditText) view.findViewById(R.id.et_antitheft_account_validate_password);
+		bt_antitheft_account_validate_ok = (Button)view.findViewById(R.id.bt_antitheft_account_validate_ok);
+		bt_antitheft_account_validate_cancel = (Button) view.findViewById(R.id.bt_antitheft_account_validate_cancel);
+		
+		bt_antitheft_account_validate_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				antitheft_account_validate_dialog.dismiss();
+				Log.i(TAG, "anti-theft validate canceled");
+			}
+		});
+		
+		bt_antitheft_account_validate_ok.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String password = et_antitheft_account_validate_password.getText().toString().trim();
+				String sp_password = sp.getString("password", null);
+				if(password.isEmpty()){
+					Toast.makeText(HomeActivity.this, "The password is empty", Toast.LENGTH_SHORT).show();
+					Log.i(TAG, "The password is empty");
+					return;
+				}
+				if(!password.equals(sp_password)){
+					Toast.makeText(HomeActivity.this, "The passwords do not match", Toast.LENGTH_SHORT).show();
+					Log.i(TAG, "The passwords do not match");
+					return;
+				}
+				Log.i(TAG, "The passwords is correct. prepare to enter anti-theft activity.");
+				antitheft_account_validate_dialog.dismiss();
+				//enterAntiTheftActivity();
+				
+			}
+		});
+		
+		antitheft_account_validate_dialog = builder.create();
+		antitheft_account_validate_dialog.setView(view, 0, 0, 0, 0);
+		antitheft_account_validate_dialog.show();
+	}
+
+
+	private boolean isSetupAntiTheftAccount(){
+		String password = sp.getString("password", null);
+		return !TextUtils.isEmpty(password);
+	}
+
+
 	private class BodyAdapter extends BaseAdapter{
 
 		@Override
