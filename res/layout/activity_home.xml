@@ -3,11 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yijun.androidsafeguard.HomeActivity" >
+    tools:context=".HomeActivity" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_home_title"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#3B5998"
+        android:gravity="center"
+        android:text="@string/title_home"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <com.yijun.androidsafeguard.ui.FocusedTextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Android Safe Guard is a full featured security and optimization app for mobile phones. It features in Phone checkup, Anti-virus, Vulnerability fixing, Call and SMS blocking, Privacy protection and Anti-theft, it also provides features like One-key system cleanup, Unused cache cleaning etc. to ensure your phone runs at its optimum."
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <GridView
+        android:id="@+id/gv_home_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dip"
+        android:numColumns="3"
+        android:verticalSpacing="10dp" >
+    </GridView>
 
 </LinearLayout>
