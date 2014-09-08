@@ -215,7 +215,6 @@ public class HomeActivity extends Activity {
 				enterAntiTheftActivity();
 			}
 		});
-		
 		antitheft_account_validate_dialog = builder.create();
 		antitheft_account_validate_dialog.setView(view, 0, 0, 0, 0);
 		antitheft_account_validate_dialog.show();

@@ -54,27 +54,30 @@ containing a value of this type.
         public static final int app=0x7f020005;
         public static final int atools=0x7f020006;
         public static final int bind=0x7f020007;
-        public static final int btn_green_normal=0x7f020008;
-        public static final int btn_green_pressed=0x7f020009;
-        public static final int callmsgsafe=0x7f02000a;
-        public static final int function_greenbutton_normal=0x7f02000b;
-        public static final int function_greenbutton_pressed=0x7f02000c;
-        public static final int ic_launcher=0x7f02000d;
-        public static final int ic_launcher_cat=0x7f02000e;
-        public static final int launch_bg=0x7f02000f;
-        public static final int listview_devider=0x7f020010;
-        public static final int lock=0x7f020011;
-        public static final int netmanager=0x7f020012;
-        public static final int next=0x7f020013;
-        public static final int phone=0x7f020014;
-        public static final int previous=0x7f020015;
-        public static final int safe=0x7f020016;
-        public static final int settings=0x7f020017;
-        public static final int setup1=0x7f020018;
-        public static final int sysoptimize=0x7f020019;
-        public static final int taskmanager=0x7f02001a;
-        public static final int trojan=0x7f02001b;
-        public static final int unlock=0x7f02001c;
+        public static final int bt_pressed=0x7f020008;
+        public static final int bt_unpress=0x7f020009;
+        public static final int btn_green_normal=0x7f02000a;
+        public static final int btn_green_pressed=0x7f02000b;
+        public static final int button=0x7f02000c;
+        public static final int callmsgsafe=0x7f02000d;
+        public static final int function_greenbutton_normal=0x7f02000e;
+        public static final int function_greenbutton_pressed=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int ic_launcher_cat=0x7f020011;
+        public static final int launch_bg=0x7f020012;
+        public static final int listview_devider=0x7f020013;
+        public static final int lock=0x7f020014;
+        public static final int netmanager=0x7f020015;
+        public static final int next=0x7f020016;
+        public static final int phone=0x7f020017;
+        public static final int previous=0x7f020018;
+        public static final int safe=0x7f020019;
+        public static final int settings=0x7f02001a;
+        public static final int setup1=0x7f02001b;
+        public static final int sysoptimize=0x7f02001c;
+        public static final int taskmanager=0x7f02001d;
+        public static final int trojan=0x7f02001e;
+        public static final int unlock=0x7f02001f;
     }
     public static final class id {
         public static final int action_settings=0x7f080015;
@@ -157,6 +160,7 @@ containing a value of this type.
         /**  Application theme. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int button_next_style=0x7f060003;
         public static final int text_content_style=0x7f060002;
     }
     public static final class styleable {

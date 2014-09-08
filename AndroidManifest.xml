@@ -39,10 +39,10 @@
             android:name=".AntiTheftActivity"
             android:label="@string/title_activity_anti_theft" >
         </activity>
-        <activity
-            android:name=".AntiTheftSetup1Activity"
-            android:label="@string/title_activity_anti_theft_setup" >
-        </activity>
+        <activity android:name=".AntiTheftSetup1Activity"/>
+        <activity android:name=".AntiTheftSetup2Activity"/>
+        <activity android:name=".AntiTheftSetup3Activity"/>
+        <activity android:name=".AntiTheftSetup4Activity"/>
     </application>
 
 </manifest>

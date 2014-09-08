@@ -18,7 +18,7 @@
 
     <TextView
         style="@style/text_content_style"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@android:drawable/star_big_on"
         android:text="SIM Changed Alert" />
 
@@ -78,11 +78,8 @@
         
         <Button 
             android:id="@+id/bt_antitheft_setup_next"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            style="@style/button_next_style"
+            android:onClick="next"
             />
     </RelativeLayout>
 
