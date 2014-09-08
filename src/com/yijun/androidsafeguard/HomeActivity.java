@@ -1,5 +1,9 @@
 package com.yijun.androidsafeguard;
 
+import java.security.NoSuchAlgorithmException;
+
+import com.yijun.androidsafeguard.utils.MD5;
+
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -105,7 +109,6 @@ public class HomeActivity extends Activity {
 			showAntiTheftAccountValidateDialog();
 		}else{
 			showSetupAndiTheftAccountDialog();
-			
 		}
 	}
 	
@@ -146,12 +149,19 @@ public class HomeActivity extends Activity {
 				
 				// save to config
 				Editor editor = sp.edit();
-				editor.putString("password", password);
+				String encodedPwd = password;
+				try {
+					encodedPwd = MD5.encode(password);
+				} catch (NoSuchAlgorithmException e) {
+					Log.i(TAG, "MD5 algorithm does not exist");
+					Toast.makeText(HomeActivity.this, "Internal Error.", Toast.LENGTH_SHORT).show();
+				}
+				editor.putString("password", encodedPwd);
 				editor.commit();
 				Log.i(TAG, "Saved password to config");
 				antitheft_account_setup_dialog.dismiss();
 				
-				Log.i(TAG, "Show anti-theft account validate dialog");
+				Log.i(TAG, "Show anti-t heft account validate dialog");
 				showAntiTheftAccountValidateDialog();
 			}
 		});
@@ -183,6 +193,12 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				String password = et_antitheft_account_validate_password.getText().toString().trim();
+				try {
+					password = MD5.encode(password);
+				} catch (NoSuchAlgorithmException e) {
+					Log.i(TAG, "MD5 algorithm does not exist");
+					Toast.makeText(HomeActivity.this, "Internal Error.", Toast.LENGTH_SHORT).show();
+				}
 				String sp_password = sp.getString("password", null);
 				if(password.isEmpty()){
 					Toast.makeText(HomeActivity.this, "The password is empty", Toast.LENGTH_SHORT).show();
@@ -196,8 +212,7 @@ public class HomeActivity extends Activity {
 				}
 				Log.i(TAG, "The passwords is correct. prepare to enter anti-theft activity.");
 				antitheft_account_validate_dialog.dismiss();
-				//enterAntiTheftActivity();
-				
+				enterAntiTheftActivity();
 			}
 		});
 		
@@ -205,6 +220,11 @@ public class HomeActivity extends Activity {
 		antitheft_account_validate_dialog.setView(view, 0, 0, 0, 0);
 		antitheft_account_validate_dialog.show();
 	}
+	
+	private void enterAntiTheftActivity() {
+		Intent intent = new Intent(HomeActivity.this, AntiTheftActivity.class);
+		startActivity(intent);
+	}    
 
 
 	private boolean isSetupAntiTheftAccount(){
