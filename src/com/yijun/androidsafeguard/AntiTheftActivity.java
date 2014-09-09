@@ -52,6 +52,8 @@ public class AntiTheftActivity extends Activity {
 							editor.remove(Constant.ANTI_THEFT_BIND_SIM);
 							editor.remove(Constant.ANTI_THEFT_ON);
 							editor.remove(Constant.ANTI_THEFT_PASSWORD);
+							editor.remove(Constant.ANTI_THEFT_SECURE_PHONE);
+							editor.remove(Constant.ANTI_THEFT_SIM_SERIAL_NUMBER);
 							editor.commit();
 							dialog.dismiss();
 							AlertDialog.Builder builder2 = new Builder(AntiTheftActivity.this);
