@@ -2,6 +2,7 @@ package com.yijun.androidsafeguard;
 
 import java.security.NoSuchAlgorithmException;
 
+import com.yijun.androidsafeguard.utils.Constant;
 import com.yijun.androidsafeguard.utils.MD5;
 
 import android.R.integer;
@@ -82,7 +83,7 @@ public class HomeActivity extends Activity {
 		
 		//initial widgets
 		gv_home_body = (GridView) findViewById(R.id.gv_home_body);
-		sp = getSharedPreferences("config", MODE_PRIVATE);
+		sp = getSharedPreferences(Constant.PREF_FILE_NAME, MODE_PRIVATE);
 		
 		gv_home_body.setAdapter(new BodyAdapter());
 		gv_home_body.setOnItemClickListener(new OnItemClickListener() {
@@ -156,7 +157,7 @@ public class HomeActivity extends Activity {
 					Log.i(TAG, "MD5 algorithm does not exist");
 					Toast.makeText(HomeActivity.this, "Internal Error.", Toast.LENGTH_SHORT).show();
 				}
-				editor.putString("password", encodedPwd);
+				editor.putString(Constant.ANTI_THEFT_PASSWORD, encodedPwd);
 				editor.commit();
 				Log.i(TAG, "Saved password to config");
 				antitheft_account_setup_dialog.dismiss();
@@ -199,7 +200,7 @@ public class HomeActivity extends Activity {
 					Log.i(TAG, "MD5 algorithm does not exist");
 					Toast.makeText(HomeActivity.this, "Internal Error.", Toast.LENGTH_SHORT).show();
 				}
-				String sp_password = sp.getString("password", null);
+				String sp_password = sp.getString(Constant.ANTI_THEFT_PASSWORD, null);
 				if(password.isEmpty()){
 					Toast.makeText(HomeActivity.this, "The password is empty", Toast.LENGTH_SHORT).show();
 					Log.i(TAG, "The password is empty");
@@ -227,7 +228,7 @@ public class HomeActivity extends Activity {
 
 
 	private boolean isSetupAntiTheftAccount(){
-		String password = sp.getString("password", null);
+		String password = sp.getString(Constant.ANTI_THEFT_PASSWORD, null);
 		return !TextUtils.isEmpty(password);
 	}
 

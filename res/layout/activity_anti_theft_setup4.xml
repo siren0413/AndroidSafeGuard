@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:yijun="http://schemas.android.com/apk/res/com.yijun.androidsafeguard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,27 +17,16 @@
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <TextView
-        style="@style/text_content_style"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@android:drawable/star_big_on"
-        android:text="SIM Changed Alert" />
-
-    <TextView
-        style="@style/text_content_style"
-        android:drawableLeft="@android:drawable/star_big_on"
-        android:text="GPS Tracking" />
-
-    <TextView
-        style="@style/text_content_style"
-        android:drawableLeft="@android:drawable/star_big_on"
-        android:text="Remote Data Discard" />
-
-    <TextView
-        style="@style/text_content_style"
-        android:drawableLeft="@android:drawable/star_big_on"
-        android:text="Remote Lock Screen" />
-
+    <com.yijun.androidsafeguard.ui.ItemViewWithCheckbox
+        android:id="@+id/ui_ivwc_antitheft_setup4_item"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        yijun:title="set anti-theft ON"
+        yijun:statusOnText="anti-theft on"
+        yijun:statusOffText="anti-theft off"
+        />
+    
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,22 +38,22 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@android:drawable/presence_online" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/presence_invisible" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/presence_invisible" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/presence_invisible" />
     </LinearLayout>
 
     <RelativeLayout
@@ -77,8 +67,16 @@
              />
         
         <Button 
+            android:id="@+id/bt_antitheft_setup_previous"
+            style="@style/button_previous_style"
+            android:text="Previous"
+            android:onClick="previous"
+            />
+        
+        <Button 
             android:id="@+id/bt_antitheft_setup_next"
             style="@style/button_next_style"
+            android:text="Next"
             android:onClick="next"
             />
     </RelativeLayout>

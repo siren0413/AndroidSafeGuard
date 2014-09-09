@@ -1,12 +1,44 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yijun.androidsafeguard.AntiTheftActivity" >
+    xmlns:yijun="http://schemas.android.com/apk/res/com.yijun.androidsafeguard"
+    tools:context="com.yijun.androidsafeguard.AntiTheftActivity"
+    android:orientation="vertical"
+     >
 
     <TextView
+        android:id="@+id/tv_setting_title"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#3B5998"
+        android:gravity="center"
+        android:text="Anti-Theft"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    
+    <com.yijun.androidsafeguard.ui.ItemViewWithTextview
+        android:id="@+id/ui_ivwt_setting_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="anti-theft" />
+        yijun:title="security phone number"
+        />
+    
+    <com.yijun.androidsafeguard.ui.ItemViewWithCheckbox
+        android:id="@+id/ui_ivwc_antitheft_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        yijun:title="Anti-theft ON"
+        yijun:statusOnText="anti-theft enabled"
+        yijun:statusOffText="anti-theft disabled"
+         />
+    
+    <com.yijun.androidsafeguard.ui.ItemViewWithTextview
+        android:id="@+id/ui_ivwt_antitheft_reset_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        yijun:title="Reset anti-theft settings"
+        />
 
-</RelativeLayout>
+</LinearLayout>

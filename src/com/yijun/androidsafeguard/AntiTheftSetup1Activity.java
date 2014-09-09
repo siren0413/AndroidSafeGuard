@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class AntiTheftSetup1Activity extends Activity {
+public class AntiTheftSetup1Activity extends AntiTheftBaseSetupActivity {
 
 	private static final String TAG = "AntiTheftSetup1Activity";
 
@@ -22,11 +22,14 @@ public class AntiTheftSetup1Activity extends Activity {
 		Intent intent = new Intent(this, AntiTheftSetup2Activity.class);
 		startActivity(intent);
 		Log.i(TAG, "Enter Anti-theft setup 2 activity");
+		finish();
+		overridePendingTransition(R.anim.trans_in, R.anim.trans_out);
 	}
 	
 	public void previous(View view){
 		Log.i(TAG, "Roll back to Anti-theft setup 1 activity");
 		finish();
+		overridePendingTransition(R.anim.rev_trans_in, R.anim.rev_trans_out);
 	}
 
 }

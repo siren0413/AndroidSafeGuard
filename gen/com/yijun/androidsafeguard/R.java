@@ -8,6 +8,12 @@
 package com.yijun.androidsafeguard;
 
 public final class R {
+    public static final class anim {
+        public static final int rev_trans_in=0x7f040000;
+        public static final int rev_trans_out=0x7f040001;
+        public static final int trans_in=0x7f040002;
+        public static final int trans_out=0x7f040003;
+    }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -42,8 +48,8 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int anti_theft_setup_1=0x7f020000;
@@ -80,31 +86,36 @@ containing a value of this type.
         public static final int unlock=0x7f02001f;
     }
     public static final class id {
-        public static final int action_settings=0x7f080018;
-        public static final int bt_antitheft_account_setup_cancel=0x7f08000f;
-        public static final int bt_antitheft_account_setup_set=0x7f08000e;
-        public static final int bt_antitheft_account_validate_cancel=0x7f080012;
-        public static final int bt_antitheft_account_validate_ok=0x7f080011;
-        public static final int bt_antitheft_setup_next=0x7f080002;
-        public static final int bt_antitheft_setup_previous=0x7f080001;
-        public static final int cb_setting_item=0x7f080017;
-        public static final int et_antitheft_account_setup_confirm=0x7f08000d;
-        public static final int et_antitheft_account_setup_password=0x7f08000c;
-        public static final int et_antitheft_account_validate_password=0x7f080010;
-        public static final int et_antitheft_setup3_phone_number=0x7f080004;
-        public static final int gv_home_body=0x7f080006;
-        public static final int iv_home_grid_item=0x7f080013;
-        public static final int rl_splash_root=0x7f080007;
-        public static final int tv_antitheft_title=0x7f080000;
-        public static final int tv_home_grid_item=0x7f080014;
-        public static final int tv_home_title=0x7f080005;
-        public static final int tv_setting_item_status=0x7f080016;
-        public static final int tv_setting_item_title=0x7f080015;
-        public static final int tv_setting_title=0x7f08000a;
-        public static final int tv_splash_update_progress=0x7f080009;
-        public static final int tv_splash_version=0x7f080008;
-        public static final int ui_ivwc_antitheft_setup2_item=0x7f080003;
-        public static final int ui_ivwc_setting_item=0x7f08000b;
+        public static final int action_settings=0x7f09001d;
+        public static final int bt_antitheft_account_setup_cancel=0x7f090013;
+        public static final int bt_antitheft_account_setup_set=0x7f090012;
+        public static final int bt_antitheft_account_validate_cancel=0x7f090016;
+        public static final int bt_antitheft_account_validate_ok=0x7f090015;
+        public static final int bt_antitheft_setup_next=0x7f090006;
+        public static final int bt_antitheft_setup_previous=0x7f090005;
+        public static final int cb_setting_item=0x7f09001b;
+        public static final int et_antitheft_account_setup_confirm=0x7f090011;
+        public static final int et_antitheft_account_setup_password=0x7f090010;
+        public static final int et_antitheft_account_validate_password=0x7f090014;
+        public static final int et_antitheft_setup3_phone_number=0x7f090008;
+        public static final int gv_home_body=0x7f09000b;
+        public static final int iv_home_grid_item=0x7f090017;
+        public static final int rl_splash_root=0x7f09000c;
+        public static final int tv_antitheft_title=0x7f090004;
+        public static final int tv_home_grid_item=0x7f090018;
+        public static final int tv_home_title=0x7f09000a;
+        public static final int tv_setting_item=0x7f09001c;
+        public static final int tv_setting_item_status=0x7f09001a;
+        public static final int tv_setting_item_title=0x7f090019;
+        public static final int tv_setting_title=0x7f090000;
+        public static final int tv_splash_update_progress=0x7f09000e;
+        public static final int tv_splash_version=0x7f09000d;
+        public static final int ui_ivwc_antitheft_item=0x7f090002;
+        public static final int ui_ivwc_antitheft_setup2_item=0x7f090007;
+        public static final int ui_ivwc_antitheft_setup4_item=0x7f090009;
+        public static final int ui_ivwc_setting_item=0x7f09000f;
+        public static final int ui_ivwt_antitheft_reset_item=0x7f090003;
+        public static final int ui_ivwt_setting_item=0x7f090001;
     }
     public static final class layout {
         public static final int activity_anti_theft=0x7f030000;
@@ -119,26 +130,27 @@ containing a value of this type.
         public static final int antitheft_validate_dialog=0x7f030009;
         public static final int grid_item_home=0x7f03000a;
         public static final int item_view_with_checkbox=0x7f03000b;
+        public static final int item_view_with_textview=0x7f03000c;
     }
     public static final class menu {
-        public static final int anti_theft=0x7f070000;
-        public static final int anti_theft_setup=0x7f070001;
-        public static final int home=0x7f070002;
-        public static final int main=0x7f070003;
-        public static final int setting=0x7f070004;
+        public static final int anti_theft=0x7f080000;
+        public static final int anti_theft_setup=0x7f080001;
+        public static final int home=0x7f080002;
+        public static final int main=0x7f080003;
+        public static final int setting=0x7f080004;
     }
     public static final class string {
-        public static final int action_settings=0x7f040003;
-        public static final int app_name=0x7f040001;
-        public static final int hello_world=0x7f040002;
-        public static final int serverurl=0x7f040000;
-        public static final int title_activity_anti_theft=0x7f040009;
-        public static final int title_activity_anti_theft_setup=0x7f04000a;
-        public static final int title_activity_home=0x7f040005;
-        public static final int title_activity_setting=0x7f040007;
-        public static final int title_home=0x7f040006;
-        public static final int title_settings=0x7f040008;
-        public static final int version=0x7f040004;
+        public static final int action_settings=0x7f050003;
+        public static final int app_name=0x7f050001;
+        public static final int hello_world=0x7f050002;
+        public static final int serverurl=0x7f050000;
+        public static final int title_activity_anti_theft=0x7f050009;
+        public static final int title_activity_anti_theft_setup=0x7f05000a;
+        public static final int title_activity_home=0x7f050005;
+        public static final int title_activity_setting=0x7f050007;
+        public static final int title_home=0x7f050006;
+        public static final int title_settings=0x7f050008;
+        public static final int version=0x7f050004;
     }
     public static final class style {
         /** 
@@ -162,13 +174,13 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int button_next_style=0x7f060003;
-        public static final int button_previous_style=0x7f060004;
-        public static final int text_content_style=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int button_next_style=0x7f070003;
+        public static final int button_previous_style=0x7f070004;
+        public static final int text_content_style=0x7f070002;
     }
     public static final class styleable {
         /** Attributes that can be used with a SettingItemView.
