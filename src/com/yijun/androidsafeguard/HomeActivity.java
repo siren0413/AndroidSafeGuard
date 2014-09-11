@@ -89,12 +89,21 @@ public class HomeActivity extends Activity {
 		gv_home_body.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent;
 				switch (position) {
 				case ANTI_THEFT:
 					showAntiTheftDialog();
 					break;
 				case SETTINGS:
-					Intent intent = new Intent(HomeActivity.this, SettingActivity.class);
+					intent = new Intent(HomeActivity.this, SettingActivity.class);
+					startActivity(intent);
+					break;
+				case TOOLS:
+					intent = new Intent(HomeActivity.this, ToolsActivity.class);
+					startActivity(intent);
+					break;
+				case ANTI_SPAM:
+					intent = new Intent(HomeActivity.this, AntiSpamActivity.class);
 					startActivity(intent);
 					break;
 				default:
